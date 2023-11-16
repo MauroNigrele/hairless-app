@@ -204,7 +204,8 @@ export const HairlessApp = () => {
                                 <hr className="my-3" /> */}
                                 
                                 <div className="input-group mb-3">
-                                    <span className="input-group-text p-1" style={{ fontSize: 26 }} > &#128110;</span>
+                                    <span className="input-group-text p-1 bg-dark" style={{ fontSize: 26 }} > &#129492;</span>
+                                    {/* <span className="input-group-text p-1" style={{ fontSize: 26 }} > &#128110;</span> */}
                                     <span className="input-group-text p-1" style={{ fontSize: 26 }} >&#127829;</span>
                                     {/* <span className="input-group-text p-1" style={{ fontSize: 26 }} >&#127829;+&#129371;</span> */}
                                     <input
@@ -216,7 +217,6 @@ export const HairlessApp = () => {
                                         className="form-control"
                                         placeholder="0" />
                                     {/* <span className="input-group-text">Beben</span> */}
-                                    <span className="input-group-text p-1" style={{ fontSize: 26 }} > &#129492;</span>
                                     <span className="input-group-text p-1" style={{ fontSize: 26 }} >&#127829;&#127866;</span>
                                     <input
                                         name="birraUsers"
