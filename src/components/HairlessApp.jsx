@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { useForm } from "../hooks/useForm"
 
 const formData = {
-    pizzaAmount: 0,
-    birraAmount: 0,
-    discountAmount: 0,
+    pizzaAmount: '',
+    birraAmount: '',
+    discountAmount: '',
     roundAmount: 100,
     pizzaUsers: 0,
     birraUsers: 0,
@@ -74,6 +74,10 @@ export const HairlessApp = () => {
         onInputChange(event);
     }
 
+    const onFocus = (event) => {
+        event.target.select();
+    }
+
     const {
         pizzaAmount,
         birraAmount,
@@ -98,13 +102,14 @@ export const HairlessApp = () => {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content rounded-4 shadow">
 
-                        <div className="modal-header p-5 pb-4 border-bottom-0 mb-3 text-center">
+                        <div className="modal-header mb-3 p-3 bg-secondary-subtle rounded-top-4" >
                             {/* <p style={{ fontSize: 50 }} >&#128000;</p>
                             <p style={{ fontSize: 50 }} >&#128001;</p> */}
-                            <span style={{ fontSize: 50 }} >&#9917;</span>
-                            <span style={{ fontSize: 50 }} >&#127866;</span>
-                            <span style={{ fontSize: 50 }} >&#127829;</span>
-                            <h1 className="fw-bold mb-0 fs-2">3º Tiempo App</h1>
+                            {/* <span style={{ fontSize: 32 }} >&#9917;</span> */}
+                            <span style={{ fontSize: 42 }} >&#128116;</span>
+                            {/* <span style={{ fontSize: 32 }} >&#127866;</span>
+                            <span style={{ fontSize: 32 }} >&#127829;</span> */}
+                            <h1 className="fw-bold mb-0 fs-2 pe-4">3º Tiempo App</h1>
                         </div>
 
                         <div className="modal-body p-5 pt-0">
@@ -115,52 +120,74 @@ export const HairlessApp = () => {
                                 <hr className="my-3" /> */}
                                 <div className="input-group mb-3">
                                     <span className="input-group-text p-1" style={{ fontSize: 30 }} >&#127829;</span>
+                                    <span className="input-group-text p-2" style={{ fontSize: 22 }} >$</span>
                                     <div className="form-floating">
                                         <input
                                             name="pizzaAmount"
                                             value={pizzaAmount}
                                             onChange={onInputChangeCallback}
+                                            onFocus={onFocus}
                                             type="number"
                                             className="form-control"
                                             id="pizzaAmount"
                                             placeholder="0"
                                         />
-                                        <label htmlFor="pizzaAmount">Pizza</label>
+                                        <label htmlFor="pizzaAmount">de Pizza</label>
                                     </div>
                                 </div>
 
                                 <div className="input-group mb-3">
                                     <span className="input-group-text p-1" style={{ fontSize: 30 }} >&#127867;</span>
+                                    <span className="input-group-text p-2" style={{ fontSize: 22 }} >$</span>
                                     {/* <span className="input-group-text p-1" style={{ fontSize: 30 }} >&#127866;</span> */}
                                     <div className="form-floating">
                                         <input
                                             name="birraAmount"
                                             value={birraAmount}
                                             onChange={onInputChangeCallback}
+                                            onFocus={onFocus}
                                             type="number"
                                             className="form-control"
                                             id="birraAmount"
                                             placeholder="0"
                                         />
-                                        <label htmlFor="birraAmount">Birrita</label>
+                                        <label htmlFor="birraAmount">de Birrita</label>
                                     </div>
                                 </div>
 
 
                                 <div className="input-group mb-3">
                                     <span className="input-group-text p-1" style={{ fontSize: 30 }} >&#128001;</span>
+                                    <span className="input-group-text p-2" style={{ fontSize: 22 }} >$</span>
                                     <div className="form-floating">
                                         <input
                                             name="discountAmount"
                                             value={discountAmount}
                                             onChange={onInputChangeCallback}
+                                            onFocus={onFocus}
                                             type="number"
                                             className="form-control"
                                             id="discountAmount"
                                             placeholder="0" />
-                                        <label htmlFor="discountAmount">Los que se fueron ...</label>
+                                        <label htmlFor="discountAmount">que dejaron ...</label>
                                     </div>
+                                </div>
 
+                                <div className="input-group mb-3">
+                                    <span className="input-group-text p-1" style={{ fontSize: 30 }} >&#128184;</span>
+                                    <span className="input-group-text p-2" style={{ fontSize: 22 }} >$</span>
+                                    <div className="form-floating">
+                                        <input
+                                            name="roundAmount"
+                                            value={roundAmount}
+                                            onChange={onInputChangeCallback}
+                                            onFocus={onFocus}
+                                            type="number"
+                                            className="form-control"
+                                            id="roundAmount"
+                                            placeholder="0" />
+                                        <label htmlFor="roundAmount">Redondeo</label>
+                                    </div>
                                 </div>
 
                                 {/* <div className="form-floating mb-3">
@@ -177,70 +204,76 @@ export const HairlessApp = () => {
                                 <hr className="my-3" /> */}
                                 
                                 <div className="input-group mb-3">
-                                    {/* <span className="input-group-text">Comen</span> */}
-                                    <span className="input-group-text p-1" style={{ fontSize: 26 }} >&#127829;+&#129371;</span>
+                                    <span className="input-group-text p-1" style={{ fontSize: 26 }} > &#128110;</span>
+                                    <span className="input-group-text p-1" style={{ fontSize: 26 }} >&#127829;</span>
+                                    {/* <span className="input-group-text p-1" style={{ fontSize: 26 }} >&#127829;+&#129371;</span> */}
                                     <input
                                         name="pizzaUsers"
                                         value={pizzaUsers}
                                         onChange={onInputChangeCallback}
+                                        onFocus={onFocus}
                                         type="number"
                                         className="form-control"
                                         placeholder="0" />
                                     {/* <span className="input-group-text">Beben</span> */}
-                                    <span className="input-group-text p-1" style={{ fontSize: 26 }} > &#127829;+&#127866;</span>
+                                    <span className="input-group-text p-1" style={{ fontSize: 26 }} > &#129492;</span>
+                                    <span className="input-group-text p-1" style={{ fontSize: 26 }} >&#127829;&#127866;</span>
                                     <input
                                         name="birraUsers"
                                         value={birraUsers}
                                         onChange={onInputChangeCallback}
+                                        onFocus={onFocus}
                                         type="number"
                                         className="form-control"
                                         placeholder="0" />
-                                    <span className="input-group-text p-1" style={{ fontSize: 26 }} >&#128184;</span>
-                                    {/* <span className="input-group-text p-1" style={{ fontSize: 26 }} >&#11093;</span> */}
-                                    {/* <span className="input-group-text">X</span> */}
+                                    {/* <span className="input-group-text p-1" style={{ fontSize: 26 }} >&#128184;</span>
                                     <input
                                         name="roundAmount"
                                         value={roundAmount}
                                         onChange={onInputChangeCallback}
                                         type="number"
                                         className="form-control"
-                                        placeholder="100" />
+                                        placeholder="100" /> */}
                                 </div>
                                 <hr className="my-3" />
                                 {
-                                     (totalAmount < 1) &&  
-                                     <div className="input-group mb-3 d-flex align-items-center p-2 pe-2 text-warning-emphasis bg-warning-subtle border border-warning rounded-3">
-                                        <span className="fs-6 text-end">Hace falta mas datos</span>
-                                    </div>   
+                                    //  (totalAmount < 1) &&  
+                                    //  <div className="mb-3 d-flex align-items-center p-2 pe-2 text-warning-emphasis bg-warning-subtle border border-warning rounded-pill">
+                                    //     <span className="text-center">:: Cargar los datos ::</span>
+                                    // </div>   
                                 }
-
 
                                 {
                                     (totalAmount > 0 && pizzaUserFee > 0) &&     
-                                    <div className="input-group mb-3 d-flex align-items-center p-2 pe-2 text-info-emphasis bg-info-subtle border border-info-subtle rounded-3">
-                                        <span className="fs-5">{(+pizzaUsers > 1) 
+                                    <div className="input-group mb-3 d-flex align-items-center p-2 pe-2 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-3">
+                                        <span className="">
+                                        {
+                                            (+pizzaUsers > 1) 
                                             ? `Los ${pizzaUsers} que solo comieron pagan $ ${pizzaUserFee}`
                                             : `El que solo comio paga $ ${pizzaUserFee}` 
-                                        }</span>
+                                        }
+                                        </span>
                                     </div>
                                 }
-
                                 {
                                     (totalAmount > 0 && birraUserFee > 0) &&
                                     <div className="input-group mb-3 d-flex align-items-center p-2 pe-2 text-success-emphasis bg-success-subtle border border-success-subtle rounded-3">
-                                        <span className="fs-5">{(+birraUsers > 1) 
+                                        <span className="">
+                                        {
+                                            (+birraUsers > 1) 
                                             ? `Los ${birraUsers} que escabiaron pagan $ ${birraUserFee}`
                                             : `El que comio y escabio paga $ ${birraUserFee}`
-                                        }</span>
-                                        <span className="fs-5">{}</span>
-                                        <span className="fs-5"></span>
+                                        }
+                                        </span>
                                     </div>
                                 }
 
                                 {
                                     (totalAmount > 0) &&
-                                    <div className="input-group mb-3 d-flex align-items-center p-2 pe-2 text-danger-emphasis bg-danger-subtle border border-danger rounded-3">
-                                        <span className="">{`Deberías juntar $ ${totalAmount} ($ ${tipAmount} de Propina).`}</span>
+                                    <div className="input-group mb-3 d-flex align-items-center p-2 pe-2 text-danger bg-danger-subtle border border-danger rounded-3">
+                                        <span className="">
+                                            <strong>{`Deberías juntar $ ${totalAmount} ( $ ${tipAmount} de Propina).`}</strong>
+                                        </span>
                                     </div>
                                 }
 
